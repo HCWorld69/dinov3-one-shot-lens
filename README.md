@@ -1,4 +1,4 @@
-# DINOv3 One-Shot Lens (Flutter) - Portfolio Fork
+# DINOv3 One-Shot Lens (Flutter) - Portfolio 
 
 Upstream: https://github.com/IoT-gamer/flutter_dinov3_one_shot_demo  
 License: MIT (see LICENSE). This fork preserves the upstream LICENSE and attribution.  
@@ -85,9 +85,6 @@ This Flutter app demonstrates one-shot object segmentation on a live camera feed
 ## Release packaging guidance
 - Android: flutter build apk --release or flutter build appbundle and include MIT attribution in in-app licenses.
 - iOS: update Podfile settings above, then flutter build ios --release with proper signing.
-
-## Attribution
-This fork is derived from IoT-gamer/flutter_dinov3_one_shot_demo by Sean P. Leary. See NOTICE and LICENSE for details.
-
+ 
 ## License
 MIT. See LICENSE.
