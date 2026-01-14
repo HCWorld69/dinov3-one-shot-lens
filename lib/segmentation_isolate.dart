@@ -26,7 +26,7 @@ Future<OrtSession> initializeSession(Map<String, dynamic> args) async {
       : [OrtProvider.CPU];
   final options = OrtSessionOptions(providers: providers);
   final session = await ort.createSession(modelPath, options: options);
-  print('✅ ONNX Session Initialized in Isolate with NNAPI provider.');
+  print('ONNX session initialized in isolate.');
   return session;
 }
 
@@ -99,7 +99,7 @@ Future<List<double>> createPrototype(Map<String, dynamic> args) async {
   }
   await inputTensor.dispose();
   await featuresTensor.dispose();
-  print('✅ Prototype created in Isolate.');
+  print('Prototype created in isolate.');
   return objectPrototype;
 }
 
