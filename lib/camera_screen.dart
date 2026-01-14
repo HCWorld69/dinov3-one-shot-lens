@@ -2,7 +2,7 @@ import 'dart:ui' as ui;
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_dinov3_one_shot_demo/constants.dart';
+import 'package:dinov3_one_shot_lens/constants.dart';
 import 'cubit/segmentation_cubit.dart';
 
 class CameraScreen extends StatelessWidget {
@@ -73,13 +73,13 @@ class _CameraViewState extends State<CameraView> {
             state.errorMessage != null) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('❌ ${state.errorMessage}'),
+              content: Text(state.errorMessage ?? 'Unknown error'),
               backgroundColor: Colors.red,
             ),
           );
         } else if (state.status == SegmentationStatus.prototypeReady) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('✅ Reference prototype created!')),
+            const SnackBar(content: Text('Reference prototype created!')),
           );
         }
       },
@@ -99,7 +99,7 @@ class _CameraViewState extends State<CameraView> {
                 tooltip: 'Select Input Size',
                 onSelected: cubit.updateInputSize,
                 itemBuilder: (BuildContext context) {
-                  return [320, 400, 512, 768].map((int size) {
+                  return AppConstants.inputSizes.map((int size) {
                     return PopupMenuItem<int>(
                       value: size,
                       child: Text('Input Size: $size'),
@@ -156,9 +156,9 @@ class _CameraViewState extends State<CameraView> {
                               Expanded(
                                 child: Slider(
                                   value: state.similarityThreshold,
-                                  min: 0.5,
-                                  max: 0.9,
-                                  divisions: 8,
+                                  min: AppConstants.minThreshold,
+                                  max: AppConstants.maxThreshold,
+                                  divisions: AppConstants.thresholdDivisions,
                                   label: state.similarityThreshold
                                       .toStringAsFixed(2),
                                   onChanged: cubit.updateThreshold,

@@ -6,7 +6,7 @@ import 'package:camera/camera.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_dinov3_one_shot_demo/constants.dart';
+import 'package:dinov3_one_shot_lens/constants.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:integral_isolates/integral_isolates.dart';
 import 'package:path_provider/path_provider.dart';
